@@ -1,0 +1,244 @@
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  user-select: none;
+}
+
+/* Upload Screen */
+.upload-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.upload-screen h1 {
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.upload-screen p {
+  font-size: 14px;
+  color: #555;
+}
+
+.drop-zone {
+  width: 360px;
+  height: 180px;
+  border: 1.5px dashed #2a2a2d;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.drop-zone:hover,
+.drop-zone.dragging {
+  border-color: #444;
+  background: #111113;
+}
+
+.drop-zone span {
+  font-size: 14px;
+  color: #666;
+}
+
+.drop-zone .hint {
+  font-size: 12px;
+  color: #3a3a3a;
+}
+
+/* Reader Screen */
+.reader {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.word-display {
+  font-size: clamp(36px, 8vw, 72px);
+  font-weight: 300;
+  letter-spacing: -1px;
+  color: #ffffff;
+  min-height: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.05s;
+}
+
+.word-display.empty {
+  opacity: 0.3;
+}
+
+/* Controls Bar */
+.controls {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 20px 32px;
+  background: linear-gradient(transparent, rgba(10, 10, 11, 0.95) 40%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.reader:hover .controls,
+.controls:hover {
+  opacity: 1;
+}
+
+.controls button {
+  background: none;
+  border: 1px solid #2a2a2d;
+  color: #999;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.controls button:hover {
+  border-color: #444;
+  color: #ddd;
+}
+
+.controls button.active {
+  border-color: #555;
+  color: #fff;
+  background: #1a1a1d;
+}
+
+.speed-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.speed-control label {
+  font-size: 12px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.speed-control input[type="range"] {
+  width: 140px;
+  accent-color: #666;
+}
+
+.speed-value {
+  font-size: 14px;
+  color: #888;
+  min-width: 72px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: #333;
+  transition: width 0.1s linear;
+}
+
+.chapter-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chapter-label {
+  font-size: 12px;
+  color: #555;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.meta {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.reader:hover .meta {
+  opacity: 1;
+}
+
+.meta .title {
+  font-size: 13px;
+  color: #444;
+  font-weight: 400;
+}
+
+.new-book-btn {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.reader:hover .new-book-btn {
+  opacity: 1;
+}
+
+.new-book-btn button {
+  background: none;
+  border: 1px solid #2a2a2d;
+  color: #666;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+
+.new-book-btn button:hover {
+  border-color: #444;
+  color: #ddd;
+}
+
+.pause-hint {
+  position: fixed;
+  bottom: 80px;
+  font-size: 11px;
+  color: #2a2a2d;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.reader:hover .pause-hint {
+  opacity: 0;
+}
